@@ -26,6 +26,7 @@ import ViewBooks from "./pages/admin/ViewBooks";
 
 import AddBook from "./pages/admin/AddBook";
 import ManageCategories from "./pages/admin/ManageCategories";
+import AdminProtectedRoute from "./components/AdminProtectedRoute";
 
 
 
@@ -60,22 +61,22 @@ function App() {
 
         <Route path="/admin/login" element={<AdminLogin />} />
 
-    <Route
-          path="/admin/admindashboard"
-           element={
-                    sessionStorage.getItem("isAdmin") === "true"
-                  ? <AdminDashboard />
-                  : <Navigate to="/admin/login" replace />
-                    }
-/>
-<Route path="/admin/users1" element={<Users1 />} />
-<Route path="/admin/orders1" element={<Orders1 />} />
-<Route path="/admin/payments1" element={<Payments1 />} />
-<Route path="/admin/BookDashboard" element={<BookDashboard />} />
-    <Route path="/admin/books/view" element={<ViewBooks />} />
-    <Route path="/admin/books/add" element={<AddBook />} />
-    <Route path="/admin/categories" element={<ManageCategories />} />
-
+   <Route
+  element={
+    <AdminProtectedRoute>
+      <AdminLayout />
+    </AdminProtectedRoute>
+  }
+>
+  <Route path="/admin/admindashboard" element={<AdminDashboard />} />
+  <Route path="/admin/users1" element={<Users1 />} />
+  <Route path="/admin/orders1" element={<Orders1 />} />
+  <Route path="/admin/payments1" element={<Payments1 />} />
+  <Route path="/admin/BookDashboard" element={<BookDashboard />} />
+  <Route path="/admin/books/view" element={<ViewBooks />} />
+  <Route path="/admin/books/add" element={<AddBook />} />
+  <Route path="/admin/categories" element={<ManageCategories />} />
+</Route>
         {/* Invalid URL */}
         <Route path="*" element={<Navigate to="/login" replace />} />
        
