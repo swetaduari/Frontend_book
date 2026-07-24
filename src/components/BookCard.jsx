@@ -25,7 +25,7 @@ export default function BookCard({ book }) {
         <div className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[#f1d8df] bg-white shadow-[0_16px_40px_rgba(123,30,58,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_48px_rgba(123,30,58,0.14)]">
             <div className="relative overflow-hidden">
                 <img
-                      src={`http://localhost:9090/books/image/${book.book_id}`}
+                      src={`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/books/image/${book.book_id}`}
     alt={book.title}
                     className="h-60 w-full object-cover transition duration-500 hover:scale-105"
                     onError={(e) => {

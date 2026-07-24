@@ -14,8 +14,9 @@ export default function VerifyOTP(){
 
         try{
 
+            const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
             await axios.post(
-                "http://localhost:9090/users/verify",
+                `${API_URL}/users/verify`,
                 null,
                 {
                     params:{

@@ -270,7 +270,7 @@ const handleEdit = (book) => {
                                             <td className="p-3">{book.book_id}</td>
                                             <td className="p-3">
                                                 <img
-    src={`http://localhost:9090/books/image/${book.book_id}`}
+    src={`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/books/image/${book.book_id}`}
     alt={book.title}
     className="h-20 w-16 rounded-xl object-cover"
 />

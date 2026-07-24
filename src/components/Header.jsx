@@ -17,8 +17,9 @@ export default function Header({ onToggleSidebar, isSidebarOpen }) {
 
         if (!userId) return;
 
+        const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
         axios
-            .get(`http://localhost:9090/users/${userId}`)
+            .get(`${API_URL}/users/${userId}`)
             .then((res) => {
                 setUser(res.data);
             })

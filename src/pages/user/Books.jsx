@@ -57,7 +57,8 @@ useEffect(() => {
 
         try {
 
-            const res = await axios.get("http://localhost:9090/books/all");
+            const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+            const res = await axios.get(`${API_URL}/books/all`);
 
             if (Array.isArray(res.data)) {
 
