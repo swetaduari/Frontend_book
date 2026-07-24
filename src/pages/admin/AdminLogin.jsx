@@ -29,7 +29,7 @@ export default function AdminLogin() {
             sessionStorage.setItem("adminEmail", form.email);
 
             alert("Welcome Admin!");
-            navigate("/admin/AdminDashboard");
+            navigate("/admin/admindashboard");
         } else {
             alert("You are not the Admin!");
         }
